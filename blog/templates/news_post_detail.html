@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<div class="news-detail-container">
+    <h1 class="news-detail-title">{{ object.title }}</h1>
+    <div class="news-detail-meta">
+        <p><strong>Author:</strong> {{ object.author }}</p>
+        <p><strong>Date Posted:</strong> {{ object.date_posted }}</p>
+    </div>
+    <hr class="news-detail-separator">
+    <div class="news-detail-content">
+        {{ object.content }}
+    </div>
+    <hr class="news-detail-separator">
+    <a href="{% url 'news-post-list' %}" class="back-to-news">Back to News Posts</a>
+</div>
+
+<style>
+    .news-detail-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #4CAF50;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-detail-title {
+        font-size: 2.5em;
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .news-detail-meta p {
+        font-size: 1.1em;
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .news-detail-meta strong {
+        font-weight: bold;
+    }
+
+    .news-detail-separator {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+    }
+
+    .news-detail-content {
+        font-size: 1.2em;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .back-to-news {
+        display: inline-block;
+        font-size: 1.1em;
+        color: #4CAF50;
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .back-to-news:hover {
+        text-decoration: underline;
+    }
+</style>
+
+{% endblock %}

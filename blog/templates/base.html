@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CVSU Bacoor News and Announcement{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fff9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+        }
+
+        toppart ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        toppart ul li {
+            margin: 0 15px;
+        }
+
+        toppart ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        toppart ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            {% comment %} border: 2px solid #4CAF50; {% endcomment %}
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+   
+     
+        .landing-page {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .landing-page h1 {
+            color: #4CAF50;
+            font-size: 2.5em;
+        }
+
+        .landing-page p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <toppart>
+            <ul>
+                <li><a href="{% url 'announcement-list' %}">Home</a></li>
+                <li><a href="{% url 'announcement-create' %}">New Announcement</a></li>
+                <li><a href="{% url 'news-post-list' %}">News</a></li>
+            </ul>
+        </toppart>
+    </header>
+    
+    <main>
+        <div class="landing-page">
+            <h1>Welcome to CVSU Bacoor</h1>
+            <p>Cavite State University Bacoor Campus is dedicated to providing quality education and fostering innovation among students.
+            Our campus offers a wide range of programs designed to equip students with the skills and knowledge to excel in their chosen fields.
+            Explore our website to stay updated on the latest announcements, events, and opportunities at CVSU Bacoor. </p>
+        </div>
+        {% block content %}{% endblock %}
+    </main>
+    
+  
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

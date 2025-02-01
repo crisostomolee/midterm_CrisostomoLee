@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}News Posts{% endblock %}
+
+{% block content %}
+<h1 class="page-title">News Posts</h1>
+<ul class="news-list">
+    {% for post in object_list %}
+    <li class="news-item">
+        <strong class="news-title">{{ post.title }}</strong><br>
+        <span class="news-author-date">by {{ post.author }} ({{ post.date_posted }})</span><br>
+        <p class="news-content">{{ post.content|truncatewords:30 }}</p>
+        <a href="{% url 'news-post-detail' post.pk %}" class="read-more">Read more</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<style>
+    .page-title {
+        text-align: center;
+        font-size: 2.5em;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+
+    .news-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .news-item {
+        background-color: #fff;
+        border: 1px solid #4CAF50;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-title {
+        font-size: 1.8em;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .news-author-date {
+        font-size: 1.1em;
+        color: #777;
+        font-style: italic;
+    }
+
+    .news-content {
+        font-size: 1.1em;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    .read-more {
+        font-size: 1.1em;
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+    .news-item:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}
